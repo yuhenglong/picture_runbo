@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1210, initial-scale=0.66">
+    <title>嘉荣互联网科技</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/myjQuery.js"></script>
+</head>
+<body>
+<div class="nav">
+    <div class="nav_two">
+        <img src="images/logo.png" alt="">
+    <ul>
+        <li class="current"><a href="javascript:;" id="index">首页</a></li>
+        <li><a href="javascript:;" id="intr">公司介绍</a></li>
+        <li><a href="javascript:;" id="serc">我们的服务</a></li>
+        <li><a href="javascript:;" id="adv">团队优势</a></li>
+    </ul>
+    </div>
+</div>
+<div class="contain">
+    <div class="banner_fir" id="banner_fir">
+        <ul class="ov">
+            <li class="fl"></li>
+            <li class="fl"></li>
+        </ul>
+        <ol class="ov">
+            <li class="fl"></li>
+            <li class="fl"></li>
+        </ol>
+    </div>
+    <script type="text/javascript">
+        var timer = null;
+        function real_time_go(){
+            var timerNum = 0;
+            clearInterval(timer);
+            timer = setInterval(function(){
+                timerNum++;
+                if(timerNum >= $(".banner_fir ul li").length){
+                    timerNum=0;
+                    $(".banner_fir ul").animate({"left":-timerNum*100+"%"},300);
+                    $(".banner_fir ol li").eq(timerNum).addClass("current").siblings().removeClass("current");
+                }else{
+                    $(".banner_fir ul").animate({"left":-timerNum*100+"%"},300);
+                    $(".banner_fir ol li").eq(timerNum).addClass("current").siblings().removeClass("current");
+                }
+            },3000);
+        }
+        $(".banner_fir ol li").hover(function(){
+            clearInterval(timer);
+            var index = $(this).index();
+            timerNum = index;
+            $(this).addClass("current").siblings().removeClass("current");
+            $(".banner_fir ul").animate({"left":-timerNum*100+"%"},300);
+        },function(){
+            real_time_go();
+        });
+        $(".bannerIn ul").hover(function(){
+            clearInterval(timer);
+        },function(){
+            real_time_go();
+        });
+        real_time_go();
+        var hiddenProperty = 'hidden' in document ? 'hidden' :
+                'webkitHidden' in document ? 'webkitHidden' :
+                        'mozHidden' in document ? 'mozHidden' :
+                                null;
+        var visibilityChangeEvent = hiddenProperty.replace(/hidden/i, 'visibilitychange');
+        var onVisibilityChange = function(){
+            if (!document[hiddenProperty]) {
+                real_time_go();
+            }else{
+                clearInterval(timer);
+            }
+        };
+        document.addEventListener(visibilityChangeEvent, onVisibilityChange);
+    </script>
+    <div class="banner_sec" id="banner_sec">
+        <img src="images/banner_sec.jpg" alt="">
+        <div class="com_til">
+            <p>公司介绍</p>
+            <p>COMPANY&emsp;INTRODUCTION</p>
+            <p class="com_line"><span></span><span></span></p>
+        </div>
+        <div class="com_intr">
+            <img src="images/ban_sec_lit.jpg" alt="" class="fl">
+            <div class="com_text fl">
+                <p>广州嘉荣互联网科技有限公司专注于APP开发、移动端、金融等方面软件开发，先后服务100多家跨国公司和国内大中型企业。</p>
+                <p>我们的客户群在金融、广告、互联网等行业领域均有涉猎。公司始终把“以信为本，以智取胜”作为宗旨，着眼于市场需求，高瞻远瞩，本着辛勤耕耘和守信的经营方式，赢得广大商家和客户的支持和信任。</p>
+            </div>
+        </div>
+    </div>
+    <div class="banner_thr" id="banner_thr">
+        <img src="images/banner_thr.jpg" alt="">
+        <div class="com_til">
+            <p>我们的服务</p>
+            <p>OUR&emsp;SERVICES</p>
+            <p class="com_line"><span></span><span></span></p>
+        </div>
+        <div class="com_intr">
+            <div class="com_ser fl">
+                <p>编程开发</p>
+                <p>PROGRAMMING</p>
+                <span class="com_ser_line"></span>
+            </div>
+            <div class="com_ser fl">
+                <p>软件设计</p>
+                <p>SOFTWARE DESIGN</p>
+                <span class="com_ser_line"></span>
+            </div>
+            <div class="com_ser fl">
+                <p>系统建立</p>
+                <p>SYSTEM</p>
+                <span class="com_ser_line"></span>
+            </div>
+        </div>
+    </div>
+    <div class="adva" id="adva">
+        <div class="com_til text_col">
+            <p>团队优势</p>
+            <p>TEAM&emsp;ADVANTAGE</p>
+            <p class="com_line line_col"><span></span><span></span></p>
+        </div>
+        <ul>
+            <li class="fl">
+                <img src="images/icon/1.png" alt="">
+                <p class="ad_p_fir">专业团队</p>
+                <p class="ad_p_sec">PROFESSION</p>
+                <span class="adva_line"></span>
+                <p class="ad_p_thr">资深技术人员</p>
+                <p class="ad_p_thr">享一对一服务</p>
+            </li>
+            <li class="fl">
+                <img src="images/icon/2.png" alt="">
+                <p class="ad_p_fir">多元化</p>
+                <p class="ad_p_sec">DIVERSIFIED</p>
+                <span class="adva_line"></span>
+                <p class="ad_p_thr">个性创意研发</p>
+                <p class="ad_p_thr">追求精益求精</p>
+            </li>
+            <li class="fl">
+                <img src="images/icon/3.png" alt="">
+                <p class="ad_p_fir">一站式服务</p>
+                <p class="ad_p_sec">DIVERSIFIED</p>
+                <span class="adva_line"></span>
+                <p class="ad_p_thr">操作系统便捷</p>
+                <p class="ad_p_thr">部署一步到位</p>
+            </li>
+            <li class="fl">
+                <img src="images/icon/4.png" alt="">
+                <p class="ad_p_fir">安全稳定</p>
+                <p class="ad_p_sec">SECURITY</p>
+                <span class="adva_line"></span>
+                <p class="ad_p_thr">实时监控维护</p>
+                <p class="ad_p_thr">高效解决漏洞</p>
+            </li>
+            <div class="clear"></div>
+        </ul>
+    </div>
+</div>
+<div class="footer">
+    <div>
+        <a href="javascript:;" class="foot_a">关于我们</a>|
+        <a href="javascript:;" class="foot_a">联系我们</a>|
+        <a href="javascript:;" class="foot_a">法律声明</a>|
+        <a href="javascript:;" class="foot_a">在线留言</a>
+    </div>
+    <p>广州嘉荣互联网科技有限公司</p>
+</div>
+</body>
+</html>
